@@ -9,7 +9,7 @@ def get_book_text(filepath):
 def main():
 
     if len(sys.argv) != 2:
-        print("You have to write -python3 main.py the-path-to-your-book- and hit enter")
+        print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
     if len(sys.argv) == 2:
         text = str(get_book_text(sys.argv[1]))
@@ -24,6 +24,6 @@ def main():
         print("--------- Character Count -------")
         for char in dict_list:
             print(f"{char['char']}: {char['count']}")
-        print(f"============= END ===============")
+        print("============= END ===============")
 
 main()
