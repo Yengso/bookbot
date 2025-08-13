@@ -8,18 +8,22 @@ def get_book_text(filepath):
 
 def main():
 
-    text = str(get_book_text(sys.argv[1]))
-    the_dict = get_letter_count(text)
-    dict_list = sort_dict(the_dict)
-    dict_list.sort(reverse=True, key=sort_on)
+    if len(sys.argv) != 2:
+        print("You have to write -python3 main.py the-path-to-your-book- and hit enter")
+        sys.exit(1)
+    if len(sys.argv) == 2:
+        text = str(get_book_text(sys.argv[1]))
+        the_dict = get_letter_count(text)
+        dict_list = sort_dict(the_dict)
+        dict_list.sort(reverse=True, key=sort_on)
 
-    print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {sys.argv[1]}...")
-    print("----------- Word Count ----------")
-    print(get_word_count(sys.argv[1]))
-    print("--------- Character Count -------")
-    for char in dict_list:
-        print(f"{char['char']}: {char['count']}")
-    print(f"============= END ===============")
+        print("============ BOOKBOT ============")
+        print(f"Analyzing book found at {sys.argv[1]}...")
+        print("----------- Word Count ----------")
+        print(get_word_count(sys.argv[1]))
+        print("--------- Character Count -------")
+        for char in dict_list:
+            print(f"{char['char']}: {char['count']}")
+        print(f"============= END ===============")
 
 main()
