@@ -8,7 +8,7 @@ def get_word_count(filepath):
         for word in words:
             counter += 1
 
-    print(f"{counter} words found in the document")
+    return(f"Found {counter} total words")
 
 def get_letter_count(text):
     char_counts = {}
@@ -21,3 +21,13 @@ def get_letter_count(text):
             char_counts[l] += 1
             
     return char_counts
+
+def sort_dict(char):
+    dictionary = []
+    for key in char:
+        if key.isalpha():
+            dictionary.append({"char": key, "count": char[key]})
+    return dictionary
+
+def sort_on(items):
+    return items["count"]
